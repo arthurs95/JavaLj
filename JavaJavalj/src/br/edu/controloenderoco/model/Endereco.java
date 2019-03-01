@@ -1,14 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package br.edu.controloenderoco.model;
 
-/**
- *
- * @author Aluno
- */
+
 public class Endereco {
     private String cep;
     private String logradouro;
@@ -43,10 +36,10 @@ public class Endereco {
     public String getbairro(){
         return bairro;
     }
-    public void setCidade(String bairro) {
+    public void setbairro(String bairro) {
         this.bairro = bairro;
     
-    }
+    }  
        public String getuf(){
         return uf;
     }
@@ -59,6 +52,8 @@ public class Endereco {
         String erros = "";
         if (cep.equals("")){
             erros +="CEP em branco\n";
+        }else if (cep.length() > 9){
+            erros +="Estado invalido.\n";
         }
     
         
@@ -77,8 +72,9 @@ public class Endereco {
         if (uf.equals("")){
             erros +="uf em branco\n";
            
-        
-        }
+        }else if(uf.length()>2){
+        erros += "Estado invalido.\n";
+    }
        return erros;
     }
 }
